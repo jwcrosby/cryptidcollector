@@ -24,6 +24,10 @@
     <h2>AKA {{ cryptid.other }}</h2>
     <h2>{{ cryptid.location }}</h2>
     <p>{{ cryptid.description }}</p>
+    <div class="cryptid-actions">
+      <a href="{% url 'cryptids_update' cryptid.id %}" class="btn warn">Edit</a>
+      <a href="{% url 'cryptids_delete' cryptid.id %}" class="btn danger">Delete</a>
+    </div>
   </div>
 </section>
 

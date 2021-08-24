@@ -1,5 +1,5 @@
 from django.shortcuts import render
-from django.views.generic.edit import CreateView
+from django.views.generic.edit import CreateView, UpdateView, DeleteView
 from .models import Cryptid
 
 def home(request):
@@ -19,4 +19,11 @@ def cryptids_detail(request, cryptid_id):
 class CryptidCreate(CreateView):
   model = Cryptid
   fields = '__all__'
-  
+
+class CryptidUpdate(UpdateView):
+  model = Cryptid
+  fields = ['other', 'description', 'location']
+
+class CryptidDelete(DeleteView):
+  model = Cryptid
+  success_url = '/cryptids/'
