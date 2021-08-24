@@ -1,3 +1,3 @@
-![CRYPTID COLLECTOR](/main_app/static/images/logo1.png/)
+![CRYPTID COLLECTOR](/main_app/static/images/logo1.png)
 
 ## readme in progress...
