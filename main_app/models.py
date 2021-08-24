@@ -36,3 +36,6 @@ class Sighting(models.Model):
 
   def __str__(self):
     return f"{self.cryptid} sighting - {self.get_time_of_day_display()}, {self.date}"
+    
+  class Meta:
+    ordering = ['-date']
