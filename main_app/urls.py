@@ -16,5 +16,6 @@ urlpatterns = [
   path('evidence/', views.EvidenceList.as_view(), name='evidence_index'),
   path('evidence/<int:pk>/update/', views.EvidenceUpdate.as_view(), name='evidence_update'),
   path('evidence/<int:pk>/delete/', views.EvidenceDelete.as_view(), name='evidence_delete'),
-  path('cryptids/<int:cryptid_id>/assoc_evidence/<int:evidence_id>/', views.assoc_evidence, name='assoc_evidence')
+  path('cryptids/<int:cryptid_id>/assoc_evidence/<int:evidence_id>/', views.assoc_evidence, name='assoc_evidence'),
+  path('accounts/signup/', views.signup, name='signup'),
 ]
