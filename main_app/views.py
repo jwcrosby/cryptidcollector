@@ -1,29 +1,38 @@
 from django.shortcuts import render
 from django.views.generic.edit import CreateView, UpdateView, DeleteView
 from .models import Cryptid
+from .forms import SightingForm
+
 
 def home(request):
-  return render(request, 'home.html')
+    return render(request, 'home.html')
+
 
 def about(request):
-  return render(request, 'about.html')
+    return render(request, 'about.html')
+
 
 def cryptids_index(request):
-  cryptids = Cryptid.objects.all()
-  return render(request, 'cryptids/index.html', { 'cryptids': cryptids })
+    cryptids = Cryptid.objects.all()
+    return render(request, 'cryptids/index.html', {'cryptids': cryptids})
+
 
 def cryptids_detail(request, cryptid_id):
   cryptid = Cryptid.objects.get(id=cryptid_id)
-  return render(request, 'cryptids/detail.html', { 'cryptid': cryptid })
+  sighting_form = SightingForm()
+  return render(request, 'cryptids/detail.html', {'cryptid': cryptid, 'sighting_form': sighting_form})
+
 
 class CryptidCreate(CreateView):
-  model = Cryptid
-  fields = '__all__'
+    model = Cryptid
+    fields = '__all__'
+
 
 class CryptidUpdate(UpdateView):
-  model = Cryptid
-  fields = ['other', 'description', 'location']
+    model = Cryptid
+    fields = ['other', 'description', 'location']
+
 
 class CryptidDelete(DeleteView):
-  model = Cryptid
-  success_url = '/cryptids/'
+    model = Cryptid
+    success_url = '/cryptids/'

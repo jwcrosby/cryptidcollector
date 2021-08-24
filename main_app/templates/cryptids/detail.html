@@ -3,10 +3,19 @@
 
 {% block head %}
 <link 
+  href="https://cdn.jsdelivr.net/npm/mc-datepicker/dist/mc-calendar.min.css" 
+  rel="stylesheet" 
+/>
+<script 
+  src="https://cdn.jsdelivr.net/npm/mc-datepicker/dist/mc-calendar.min.js"
+>
+</script>
+<link 
   rel="stylesheet" 
   type="text/css" 
   href="{% static 'css/cryptid-detail.css' %}"
 />
+<script defer src="{% static 'js/cryptid-detail.js' %}"></script>
 {% endblock %}
 
 {% block content %}
@@ -40,14 +49,24 @@
         alt="Binoculars"
       />
       {% comment %} <img 
-        src="{% static 'images/cat-onigiri.svg' %}"
-        alt="A cat as onigiri"
+        src="{% static 'images/binocs.png' %}" 
+        alt="Binoculars"
       />
       <img 
-        src="{% static 'images/kitty-kabob.svg' %}" 
-        alt="A kabob of kittens"
-      /> {% endcomment %}
+        src="{% static 'images/binocs.png' %}" 
+        alt="Binoculars"
+      />{% endcomment %}
     </div>
+    <h3>Add a Sighting</h3>
+    <form
+      method="post" 
+      class="subsection-section"
+    >
+      {% csrf_token %}
+      {{ sighting_form.as_p }}
+      <button type="submit" class="btn submit">Add Sighting</button>
+    </form>
+    <h3>Past Sightings</h3>
     <table>
       <thead>
         <tr><th>Date</th><th>Time of Day</th><th>Notes</th></tr>
