@@ -1,6 +1,7 @@
 from django.db import models
 from django.urls import reverse
 from datetime import date
+from django.contrib.auth.models import User
 
 TIMESOFDAY = (
   ('A', 'Dawn'),
@@ -28,6 +29,7 @@ class Cryptid(models.Model):
   description = models.TextField(max_length=150)
   location = models.CharField(max_length=150)
   evidence = models.ManyToManyField(Evidence)
+  user = models.ForeignKey(User, on_delete=models.CASCADE)
 
   def __str__(self):
     return self.name
