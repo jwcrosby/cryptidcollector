@@ -11,9 +11,9 @@
 
 ![Landing Page](/main_app/static/images/readme/login2.png)
 
-![Add A Cryptid Page](/main_app/static/images/readme/addcryptidform.png)
-
 ![Cryptid Index Page](/main_app/static/images/readme/cryptidindex.png)
+
+![Add A Cryptid Page](/main_app/static/images/readme/addcryptidform.png)
 
 ![Cryptid Details Page](/main_app/static/images/readme/cryptiddetails.png)
 
