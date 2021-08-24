@@ -48,14 +48,6 @@
         src="{% static 'images/binocs.png' %}" 
         alt="Binoculars"
       />
-      {% comment %} <img 
-        src="{% static 'images/binocs.png' %}" 
-        alt="Binoculars"
-      />
-      <img 
-        src="{% static 'images/binocs.png' %}" 
-        alt="Binoculars"
-      />{% endcomment %}
     </div>
     <h3>Add a Sighting</h3>
     <form
@@ -94,12 +86,11 @@
       <p class="subsection-section">Add a {{cryptid.name}} sighting!</p>
     {% endif %}
   </section>
+
   <section class="evidence">
     <div class="subsection-title">
       <h2>Evidence</h2>
       <img src="{% static 'images/proof.png' %}" alt="genuine proof"/>
-      {% comment %} <img src="{% static 'images/A.png' %}" alt="A " /> {% endcomment %}
-      {% comment %} <img src="{% static 'images/B.png' %}" alt="B" /> {% endcomment %}
     </div>
     <h3>{{ cryptid.name }}'s Evidence</h3>
     <div class="subsection-section">
@@ -111,7 +102,7 @@
               style="background-color: {{ evidence.color }}"
             ></div>
             <a href="{% url 'evidence_detail' evidence.id %}">
-              <p>A {{ evidence.color }} {{ evidence.evidence }}</p>
+              <p>{{ evidence.evidence }}</p>
             </a>
           </div>
         {% endfor %}
@@ -131,7 +122,7 @@
             <a href="{% url 'evidence_detail' evidence.id %}">
               <p>{{ evidence.evidence }}</p>
             </a>
-            <form action="" method="post">
+            <form action="{% url 'assoc_evidence' cryptid.id evidence.id %}" method="post">
               {% csrf_token %}
               <button type="submit" class="btn submit">Attach</button>
             </form>

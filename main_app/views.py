@@ -68,3 +68,8 @@ class EvidenceUpdate(UpdateView):
 class EvidenceDelete(DeleteView):
     model = Evidence
     success_url = '/evidence/'
+
+def assoc_evidence(request, cryptid_id, evidence_id):
+    print(cryptid_id)
+    Cryptid.objects.get(id=cryptid_id).evidence.add(evidence_id)
+    return redirect('cryptids_detail', cryptid_id=cryptid_id)
