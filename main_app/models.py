@@ -1,4 +1,5 @@
 from django.db import models
+from django.urls import reverse
 
 class Cryptid(models.Model):
   name = models.CharField(max_length=100)
@@ -8,3 +9,6 @@ class Cryptid(models.Model):
 
   def __str__(self):
     return self.name
+
+  def get_absolute_url(self):
+    return reverse('cryptids_detail', kwargs={'cryptid_id': self.id})

@@ -1,0 +1,39 @@
+.form-container {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+}
+
+table {
+  width: 90%;
+  border-spacing: 0 20px;
+}
+
+th {
+  text-align: left;
+  padding: 6px 20px 0 0;
+  font-weight: normal;
+  vertical-align: top;
+}
+
+td {
+  max-width: 60%;
+}
+
+td > * {
+  width: calc(100% - 8px);
+  padding: 2px;
+  font-size: 1.1rem;
+}
+
+td > textarea {
+  height: calc(4em + 8px);
+  font-family: inherit;
+}
+
+.btn {
+  align-self: flex-end;
+  margin-right: 5%;
+}
