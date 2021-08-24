@@ -9,7 +9,7 @@
 
 ## Screenshots
 
-![Landing Page](/main_app/static/images/readme/login2.png)
+![Landing Page](/main_app/static/images/readme/login3.png)
 
 ![Add A Cryptid Page](/main_app/static/images/readme/addcryptidform3.png)
 
