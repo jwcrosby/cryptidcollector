@@ -31,4 +31,38 @@
   </div>
 </section>
 
+<div class="sightings-toy-container">
+  <section class="sightings">
+    <div class="subsection-title">
+      <h2>Sightings</h2>
+      <img 
+        src="{% static 'images/binocs.png' %}" 
+        alt="Binoculars"
+      />
+      {% comment %} <img 
+        src="{% static 'images/cat-onigiri.svg' %}"
+        alt="A cat as onigiri"
+      />
+      <img 
+        src="{% static 'images/kitty-kabob.svg' %}" 
+        alt="A kabob of kittens"
+      /> {% endcomment %}
+    </div>
+    <table>
+      <thead>
+        <tr><th>Date</th><th>Time of Day</th><th>Notes</th></tr>
+      </thead>
+      <tbody>
+        {% for sighting in cryptid.sighting_set.all %}
+          <tr>
+            <td>{{sighting.date}}</td>
+            <td>{{sighting.get_time_of_day_display}}</td>
+            <td>{{sighting.notes}}</td>
+          </tr>
+        {% endfor %}
+      </tbody>
+    </table>
+  </section>
+</div>
+
 {% endblock %}

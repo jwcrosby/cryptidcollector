@@ -20,7 +20,7 @@
   height: auto;
 }
 
-.feedings-toy-container {
+.sightings-toy-container {
   display: flex;
   flex-direction: column;
   padding-top: 40px;
@@ -91,7 +91,7 @@
   margin: 5px 0;
 }
 
-.feedings-toy-container > section {
+.sightings-toy-container > section {
   width: 80%;
   min-width: 315px;
   border: rgb(36, 116, 248) solid 2px;
@@ -113,13 +113,13 @@
   margin-left: 16px;
 }
 
-.feedings h2,
+.sightings h2,
 .toys h2 {
   font-size: 32px;
   margin: 0;
 }
 
-.feedings h3,
+.sightings h3,
 .toys h3 {
   font-size: 24px;
   margin: 10px 0;
@@ -137,24 +137,24 @@
   padding: 3px;
 }
 
-.feedings table {
+.sightings table {
   width: calc(100% - 16px);
   text-align: left;
   border-collapse: collapse;
   margin: 0 8px;
 }
 
-.feedings td {
+.sightings td {
   padding: 8px 5px;
 }
 
-.feedings th {
+.sightings th {
   font-size: 1.1rem;
   padding: 5px 5px 0;
   border-bottom: rgb(36, 116, 248) solid 2px;;
 }
 
-.feedings tr:nth-child(even) {
+.sightings tr:nth-child(even) {
   background-color: #f3f3fd;
 }
 
@@ -196,13 +196,13 @@
     margin-right: 25px;
   }
 
-  .feedings-toy-container {
+  .sightings-toy-container {
     flex-direction: row;
     justify-content: space-around;
     align-items: flex-start;
   }
 
-  .feedings-toy-container > section {
+  .sightings-toy-container > section {
     width: 42.5%;
   }
 }

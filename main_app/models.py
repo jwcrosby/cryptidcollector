@@ -24,8 +24,9 @@ class Cryptid(models.Model):
     return reverse('cryptids_detail', kwargs={'cryptid_id': self.id})
 
 class Sighting(models.Model):
-  date = models.DateField()
+  date = models.DateField('Sighting Date')
   time_of_day = models.CharField(
+    'Time of Day',
     max_length=1,
     choices=TIMESOFDAY,
     default=TIMESOFDAY[0][0]
@@ -34,4 +35,4 @@ class Sighting(models.Model):
   cryptid = models.ForeignKey(Cryptid, on_delete=models.CASCADE)
 
   def __str__(self):
-    return f"{self.get_time_of_day_display()} on {self.date}"
+    return f"{self.cryptid} sighting - {self.get_time_of_day_display()}, {self.date}"
