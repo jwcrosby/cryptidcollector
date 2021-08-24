@@ -13,7 +13,7 @@
 
 ![Cryptid Index Page](/main_app/static/images/readme/cryptidindex.png)
 
-![Add A Cryptid Page](/main_app/static/images/readme/addcryptidform.png)
+![Add A Cryptid Page](/main_app/static/images/readme/addcryptidform3.png)
 
 ![Cryptid Details Page](/main_app/static/images/readme/cryptiddetails.png)
 
