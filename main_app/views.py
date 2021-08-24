@@ -57,4 +57,12 @@ class EvidenceList(ListView):
     model = Evidence
 
 class EvidenceDetail(DetailView):
-    model = Evidence  
+    model = Evidence
+
+class EvidenceUpdate(UpdateView):
+    model = Evidence
+    fields = ['evidence', 'color']
+
+class EvidenceDelete(DeleteView):
+    model = Evidence
+    success_url = '/evidence/'

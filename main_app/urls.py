@@ -13,4 +13,6 @@ urlpatterns = [
   path('evidence/create/', views.EvidenceCreate.as_view(), name='evidence_create'),
   path('evidence/<int:pk>/', views.EvidenceDetail.as_view(), name='evidence_detail'),
   path('evidence/', views.EvidenceList.as_view(), name='evidence_index'),
+  path('evidence/<int:pk>/update/', views.EvidenceUpdate.as_view(), name='evidence_update'),
+  path('evidence/<int:pk>/delete/', views.EvidenceDelete.as_view(), name='evidence_delete'),
 ]
