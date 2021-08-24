@@ -28,9 +28,9 @@
         </div>
         <h2 class="card-title">{{ cryptid.name }}</h2>
         {% if cryptid.other %}
-          <p>The {{ cryptid.name }}, AKA {{ cryptid.other }}.</p>
-        {% else %}
-          <p>The {{ cryptid.name }}.</p>
+          <p>AKA {{ cryptid.other }}</p>
+        {% comment %} {% else %}
+          <p>The {{ cryptid.name }}.</p> {% endcomment %}
         {% endif %}
         <p><small>{{ cryptid.location }}</small></p>
         <p><small>{{ cryptid.description }}</small></p>
