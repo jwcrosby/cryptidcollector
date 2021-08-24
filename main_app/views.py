@@ -1,17 +1,19 @@
 from django.shortcuts import render, redirect
 from django.views.generic.edit import CreateView, UpdateView, DeleteView
 from django.views.generic import ListView, DetailView
+from django.contrib.auth.views import LoginView
 from .models import Cryptid, Evidence, Photo
 from .forms import SightingForm
 import uuid
 import boto3
 
+
 S3_BASE_URL = "https://s3.us-west-1.amazonaws.com/"
 BUCKET = 'cryptid-collector'
 
 
-def home(request):
-    return render(request, 'home.html')
+class Home(LoginView):
+    template_name = 'home.html'
 
 
 def about(request):
