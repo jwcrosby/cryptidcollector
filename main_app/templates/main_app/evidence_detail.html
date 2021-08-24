@@ -1,0 +1,24 @@
+{% extends 'base.html' %} 
+{% load static %} 
+
+{% block head %}
+<link
+  rel="stylesheet"
+  type="text/css"
+  href="{% static 'css/evidence-detail.css' %}"
+/>
+{% endblock %}
+
+{% block content %}
+  
+<div class="card" style="border-color: {{ evidence.color }}">
+  <div class="card-bg" style="background-color: {{ evidence.color }}"></div>
+  <div class="card-content">
+    <h2>{{ evidence.evidence }}</h2>
+    <p>beautiful {{ evidence.color }} proof</p>
+  </div>
+</div>
+<a href="{% url 'evidence_update' evidence.id %}" class="btn warn">Edit</a>
+<a href="{% url 'evidence_delete' evidence.id %}" class="btn danger">Delete</a>
+
+{% endblock %}
