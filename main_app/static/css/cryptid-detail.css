@@ -1,0 +1,208 @@
+.cryptid-container {
+  padding-top: 35px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.cryptid-img {
+  width: 75%;
+  max-width: 350px;
+}
+
+.card-img {
+  width: 100%;
+}
+
+.cryptid-actions {
+  margin-top: 20px;
+  height: auto;
+}
+
+.feedings-toy-container {
+  display: flex;
+  flex-direction: column;
+  padding-top: 40px;
+  align-items: center;
+}
+
+.subsection-title {
+  display: flex;
+  align-items: center;
+  margin-bottom: 12px;
+}
+
+.subsection-section {
+  margin: 0 8px;
+}
+
+.toy-container {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+}
+
+.color-block {
+  opacity: .8;
+  height: 25px;
+  width: 25px;
+  margin-right: 10px;
+}
+
+.unfed,
+.fed,
+.no-toys,
+.all-toys {
+  margin: 0;
+  font-weight: bold;
+}
+
+.unfed,
+.no-toys {
+  color: crimson;
+}
+
+.fed,
+.all-toys {
+  color: green;
+}
+
+.usr-img {
+  width: 100%;
+}
+
+.cryptid-details h1 {
+  font-size: 36px;
+  margin: 15px 0 3px;
+}
+
+.cryptid-details h2 {
+  margin: 0 0 10px;
+  margin-top: 0;
+  margin-bottom: 10px;
+}
+
+.cryptid-details h3 {
+  margin: 16px 0 10px 0;
+}
+
+.cryptid-details p {
+  margin: 5px 0;
+}
+
+.feedings-toy-container > section {
+  width: 80%;
+  min-width: 315px;
+  border: rgb(36, 116, 248) solid 2px;
+  border-radius: 6px;
+  padding: 10px;
+  box-shadow: 5px 5px 6px -1px #AAA;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  margin-bottom: 20px;
+}
+
+.subsection-title img {
+  height: 42px;
+  margin-left: 8px;
+}
+
+.subsection-title img:first-of-type {
+  margin-left: 16px;
+}
+
+.feedings h2,
+.toys h2 {
+  font-size: 32px;
+  margin: 0;
+}
+
+.feedings h3,
+.toys h3 {
+  font-size: 24px;
+  margin: 10px 0;
+}
+
+.subsection-section p,
+.subsection-section input,
+.subsection-section select {
+  font-size: 1.1rem;
+}
+
+.subsection-section input,
+.subsection-section select {
+  margin-left: 5px;
+  padding: 3px;
+}
+
+.feedings table {
+  width: calc(100% - 16px);
+  text-align: left;
+  border-collapse: collapse;
+  margin: 0 8px;
+}
+
+.feedings td {
+  padding: 8px 5px;
+}
+
+.feedings th {
+  font-size: 1.1rem;
+  padding: 5px 5px 0;
+  border-bottom: rgb(36, 116, 248) solid 2px;;
+}
+
+.feedings tr:nth-child(even) {
+  background-color: #f3f3fd;
+}
+
+.toy-container p {
+  margin: 12px 0;
+}
+
+.toy-container a {
+  text-decoration: none;
+  color: #111;
+}
+
+.toy-container .btn {
+  padding: .2rem .8rem;
+  margin-left: 10px;
+}
+
+#file-input {
+  overflow: hidden;
+  position: absolute;
+  width: .1px;
+  height: .1px;
+}
+
+#file-name {
+  margin-bottom: 10px;
+}
+
+@media only screen and (min-width: 768px) {
+  .cryptid-container {
+    flex-direction: row;
+    align-items: center;
+    justify-content: start;
+  }
+
+  .cryptid-img {
+    width: 20%;
+    max-width: 200px;
+    margin-right: 25px;
+  }
+
+  .feedings-toy-container {
+    flex-direction: row;
+    justify-content: space-around;
+    align-items: flex-start;
+  }
+
+  .feedings-toy-container > section {
+    width: 42.5%;
+  }
+}

@@ -1,0 +1,30 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block head %}
+<link 
+  rel="stylesheet" 
+  type="text/css" 
+  href="{% static 'css/cryptid-detail.css' %}"
+/>
+{% endblock %}
+
+{% block content %}
+
+<section class="cryptid-container">
+  <div class="cryptid-img">
+    <img 
+      src="{% static 'images/placeholder.png' %}" 
+      alt="A placeholder cryptid"
+      class="card-img"
+>
+  </div>
+  <div class="cryptid-details">
+    <h1>{{ cryptid.name }}</h1>
+    <h2>AKA {{ cryptid.other }}</h2>
+    <h2>{{ cryptid.location }}</h2>
+    <p>{{ cryptid.description }}</p>
+  </div>
+</section>
+
+{% endblock %}
