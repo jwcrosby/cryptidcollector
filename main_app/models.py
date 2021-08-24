@@ -1,5 +1,6 @@
 from django.db import models
 from django.urls import reverse
+from datetime import date
 
 TIMESOFDAY = (
   ('A', 'Dawn'),
@@ -23,6 +24,9 @@ class Cryptid(models.Model):
   def get_absolute_url(self):
     return reverse('cryptids_detail', kwargs={'cryptid_id': self.id})
 
+  def sighted_today(self):
+    return self.sighting_set.filter(date=date.today()).count() >= 0
+
 class Sighting(models.Model):
   date = models.DateField('Sighting Date')
   time_of_day = models.CharField(
@@ -36,6 +40,6 @@ class Sighting(models.Model):
 
   def __str__(self):
     return f"{self.cryptid} sighting - {self.get_time_of_day_display()}, {self.date}"
-    
+
   class Meta:
     ordering = ['-date']

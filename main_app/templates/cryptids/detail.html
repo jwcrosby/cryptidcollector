@@ -63,6 +63,13 @@
       method="post" 
       class="subsection-section"
     >
+
+      {% if cryptid.sighted_today %}
+        <p class="sighted">{{cryptid.name}} is active! Get some evidence!</p>
+      {% else %}
+        <p class="unsighted">There have been no {{cryptid.name}} sightings today.</p>
+      {% endif %}
+      
       {% csrf_token %}
       {{ sighting_form.as_p }}
       <button type="submit" class="btn submit">Add Sighting</button>
