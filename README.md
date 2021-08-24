@@ -9,13 +9,13 @@
 
 ## Screenshots
 
-![Landing Page](/main_app/static/images/readme/login3.png)
+![Landing Page](/main_app/static/images/readme/splash.png)
 
-![Add A Cryptid Page](/main_app/static/images/readme/addcryptidform3.png)
+![Add A Cryptid Page](/main_app/static/images/readme/cryptid_add.png)
 
-![Cryptid Index Page](/main_app/static/images/readme/cryptidindex3.png)
+![Cryptid Index Page](/main_app/static/images/readme/cryptid_index.png)
 
-![Cryptid Details Page](/main_app/static/images/readme/cryptiddetails.png)
+![Cryptid Details Page](/main_app/static/images/readme/cryptid_detail.png)
 
 ## Attributions
 
