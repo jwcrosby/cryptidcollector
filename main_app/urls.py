@@ -10,6 +10,7 @@ urlpatterns = [
   path('cryptids/<int:pk>/update/', views.CryptidUpdate.as_view(), name='cryptids_update'),
   path('cryptids/<int:pk>/delete/', views.CryptidDelete.as_view(), name='cryptids_delete'),
   path('cryptids/<int:cryptid_id>/add_sighting/', views.add_sighting, name='add_sighting'),
+  path('cryptids/<int:cryptid_id>/add_photo/', views.add_photo, name='add_photo'),
   path('evidence/create/', views.EvidenceCreate.as_view(), name='evidence_create'),
   path('evidence/<int:pk>/', views.EvidenceDetail.as_view(), name='evidence_detail'),
   path('evidence/', views.EvidenceList.as_view(), name='evidence_index'),

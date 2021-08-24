@@ -21,12 +21,21 @@
       <a href="{% url 'cryptids_detail' cryptid.id %}">
         <div class="card-content">
           <div class="card-img-container">
-            <img 
-              src="{% static 'images/placeholder.png' %}" 
-              alt="A placeholder cryptid"
-              class="card-img"
-            >
+            {% if cryptid.photo.url %}
+              <img 
+                src="{{cryptid.photo.url}}" 
+                alt="A photo of {{cryptid.name}}"
+                class="usr-img"
+              >
+            {% else %}
+              <img 
+                src="{% static 'images/placeholder.png' %}" 
+                alt="A placeholder cryptid"
+                class="card-img"
+              >
+            {% endif %}
           </div>
+
           <h2 class="card-title">{{ cryptid.name }}</h2>
           {% if cryptid.other %}
             <p>AKA {{ cryptid.other }}</p>

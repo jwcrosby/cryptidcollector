@@ -38,6 +38,9 @@ class Cryptid(models.Model):
   def sighted_today(self):
     return self.sighting_set.filter(date=date.today()).count() >= 0
 
+  class Meta:
+    ordering = ['name']
+
 class Sighting(models.Model):
   date = models.DateField('Sighting Date')
   time_of_day = models.CharField(
