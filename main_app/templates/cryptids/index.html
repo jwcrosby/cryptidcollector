@@ -1,0 +1,43 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block head %}
+<link rel="stylesheet" type="text/css" href="{% static 'css/cryptid-index.css' %}"/>
+{% endblock %}
+
+{% block content %}
+
+<section class="page-header">
+  <h1>Cryptid List</h1>
+  <img src="{% static 'images/bigfoot.png' %}" alt="A happy bigfoot" />
+  <img src="{% static 'images/demon.png' %}" alt="A happy demon" />
+  <img src="{% static 'images/werewolf.png' %}" alt="A happy werewolf" />
+  <img src="{% static 'images/cthulhu.png' %}" alt="A happy cthulhu" />
+</section>
+
+<section class="card-container">
+  {% for cryptid in cryptids %}
+    <div class="card">
+      <div class="card-content">
+        <div class="card-img-container">
+          <img 
+            src="{% static 'images/placeholder.png' %}" 
+            alt="A placeholder cryptid"
+            class="card-img"
+          >
+        </div>
+        <h2 class="card-title">{{ cryptid.name }}</h2>
+        {% if cryptid.other %}
+          <p>The {{ cryptid.name }}, AKA {{ cryptid.other }}.</p>
+        {% else %}
+          <p>The {{ cryptid.name }}.</p>
+        {% endif %}
+        <p><small>{{ cryptid.location }}</small></p>
+        <p><small>{{ cryptid.description }}</small></p>
+      </div>
+    </div>
+  {% endfor %}
+</section>
+
+{% endblock %}
+
