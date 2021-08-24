@@ -1,0 +1,58 @@
+.card-container {
+  padding: 0 10px;
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+.card {
+  width: 232px;
+  height: 232px;
+  margin: 10px;
+  border: solid 2px;
+  box-shadow: 5px 5px 6px -1px #AAA;
+  position: relative;
+}
+
+.card-bg{
+  opacity: .4;
+  position: absolute;
+  display: inline-flex;
+  top: 0;
+  left: 0;
+  height: 232px;
+  width: 232px;
+}
+
+.card-content {
+  padding: 10px;
+  height: 212px;
+  width: 212px;
+  display: flex;
+  align-items: flex-end;
+  justify-content: flex-end;
+  flex-direction: column;
+}
+
+.card > a {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 232px;
+  height: 232px;
+  display: inline-block;
+  text-decoration: none;
+  color: #111;
+}
+
+.card h2 {
+  margin: 7px 0;
+}
+
+.card p {
+  margin: 0;
+}
+
+.page-header > img {
+  margin-left: 10px;
+}

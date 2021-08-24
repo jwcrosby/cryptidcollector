@@ -1,6 +1,7 @@
 from django.shortcuts import render, redirect
 from django.views.generic.edit import CreateView, UpdateView, DeleteView
-from .models import Cryptid
+from django.views.generic import ListView, DetailView
+from .models import Cryptid, Evidence
 from .forms import SightingForm
 
 
@@ -47,3 +48,13 @@ def add_sighting(request, cryptid_id):
         new_sighting.cryptid_id = cryptid_id
         new_sighting.save()
     return redirect('cryptids_detail', cryptid_id=cryptid_id)
+
+class EvidenceCreate(CreateView):
+    model = Evidence
+    fields = '__all__'
+
+class EvidenceList(ListView):
+    model = Evidence
+
+class EvidenceDetail(DetailView):
+    model = Evidence  

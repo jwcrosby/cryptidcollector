@@ -1,0 +1,36 @@
+{% extends 'base.html' %} 
+{% load static %} 
+
+{% block head %}
+<link
+  rel="stylesheet"
+  type="text/css"
+  href="{% static 'css/evidence-index.css' %}"
+/>
+{% endblock %}
+
+{% block content %}
+
+<section class="page-header">
+  <h1>All Evidence</h1>
+  <img src="{% static 'images/proof.png' %}" alt="beautiful proof" />
+  {% comment %} <img src="{% static 'images/B.png' %}" alt="B" />
+  <img src="{% static 'images/C.png' %}" alt="C" />
+  <img src="{% static 'images/D.png' %}" alt="X" /> {% endcomment %}
+</section>
+
+<section class="card-container">
+  {% for evidence in evidence_list %}
+  <div class="card" style="border-color: {{ evidence.color }}">
+    <div class="card-bg" style="background-color: {{ evidence.color }}"></div>
+    <a href="{% url 'evidence_detail' evidence.id %}">
+      <div class="card-content">
+        <h2>{{ evidence.name }}</h2>
+        <p>Beautiful {{ evidence.color }} evidence</p>
+      </div>
+    </a>
+  </div>
+  {% endfor %}
+</section>
+
+{% endblock %}
