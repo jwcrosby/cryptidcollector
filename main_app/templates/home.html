@@ -1,0 +1,20 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block head %}
+<link rel="stylesheet" type="text/css" href="{% static 'css/home.css' %}"/>
+{% endblock %}
+
+{% block content %}
+
+<section class="logo-container">
+  <div class="cryptid-container">
+    <img src="{% static 'images/splash.png' %}" alt="The Cryptid Collector Cryptid" />
+  </div>
+  {% comment %} <img 
+    src="{% static 'images/logonotext.png' %}" 
+    alt="Text reads: Cryptid Collector"
+  /> {% endcomment %}
+</section>
+
+{% endblock %}
