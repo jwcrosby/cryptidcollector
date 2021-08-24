@@ -43,3 +43,13 @@ class Sighting(models.Model):
 
   class Meta:
     ordering = ['-date']
+
+class Evidence(models.Model):
+  evidence = models.CharField(max_length=50)
+  color = models.CharField(max_length=20)
+
+  def __str__(self):
+    return self.evidence
+
+  def get_absolute_url(self):
+    return reverse('evidence_detail', kwargs={'pk': self.id})
