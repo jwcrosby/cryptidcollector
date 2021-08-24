@@ -1,4 +1,4 @@
-from django.shortcuts import render
+from django.shortcuts import render, redirect
 from django.views.generic.edit import CreateView, UpdateView, DeleteView
 from .models import Cryptid
 from .forms import SightingForm
@@ -18,9 +18,12 @@ def cryptids_index(request):
 
 
 def cryptids_detail(request, cryptid_id):
-  cryptid = Cryptid.objects.get(id=cryptid_id)
-  sighting_form = SightingForm()
-  return render(request, 'cryptids/detail.html', {'cryptid': cryptid, 'sighting_form': sighting_form})
+    cryptid = Cryptid.objects.get(id=cryptid_id)
+    sighting_form = SightingForm()
+    return render(request, 'cryptids/detail.html', {
+        'cryptid': cryptid,
+        'sighting_form': sighting_form
+    })
 
 
 class CryptidCreate(CreateView):
@@ -36,3 +39,11 @@ class CryptidUpdate(UpdateView):
 class CryptidDelete(DeleteView):
     model = Cryptid
     success_url = '/cryptids/'
+
+def add_sighting(request, cryptid_id):
+    form = SightingForm(request.POST)
+    if form.is_valid():
+        new_sighting = form.save(commit=False)
+        new_sighting.cryptid_id = cryptid_id
+        new_sighting.save()
+    return redirect('cryptids_detail', cryptid_id=cryptid_id)

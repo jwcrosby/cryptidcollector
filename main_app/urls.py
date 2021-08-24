@@ -9,4 +9,5 @@ urlpatterns = [
   path('cryptids/create/', views.CryptidCreate.as_view(), name='cryptids_create'),
   path('cryptids/<int:pk>/update/', views.CryptidUpdate.as_view(), name='cryptids_update'),
   path('cryptids/<int:pk>/delete/', views.CryptidDelete.as_view(), name='cryptids_delete'),
+  path('cryptids/<int:cryptid_id>/add_sighting/', views.add_sighting, name='add_sighting')
 ]
