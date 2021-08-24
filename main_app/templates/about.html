@@ -1,11 +1,15 @@
 {% extends 'base.html' %}
+{% load static %}
 
 {% block content %}
 
-<h1>About the Cryptid Collector</h1>
-<hr />
-<p>
-  I like long romantic walks through the unknown. Also, I am currently job seeking!
-</p>
+  <div class="page-header">
+    <h1>About the Cryptid Collector</h1>
+    <img src="{% static 'images/invisible-man.png' %}" alt="invisible man"/>
+  </div>
+  <hr />
+  <p>
+    I like long romantic walks through the unknown. Also, I am currently job seeking!
+  </p>
 
 {% endblock %}

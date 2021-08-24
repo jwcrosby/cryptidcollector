@@ -4,6 +4,8 @@ from django.views.generic import ListView, DetailView
 from django.contrib.auth.views import LoginView
 from django.contrib.auth import login
 from django.contrib.auth.forms import UserCreationForm
+from django.contrib.auth.decorators import login_required
+from django.contrib.auth.mixins import LoginRequiredMixin
 from .models import Cryptid, Evidence, Photo
 from .forms import SightingForm
 import uuid
@@ -22,11 +24,13 @@ def about(request):
     return render(request, 'about.html')
 
 
+@login_required
 def cryptids_index(request):
-    cryptids = Cryptid.objects.all()
+    cryptids = Cryptid.objects.filter(user=request.user)
     return render(request, 'cryptids/index.html', {'cryptids': cryptids})
 
 
+@login_required
 def cryptids_detail(request, cryptid_id):
     cryptid = Cryptid.objects.get(id=cryptid_id)
     evidence_cryptid_doesnt_have = Evidence.objects.exclude(id__in = cryptid.evidence.all().values_list('id'))
@@ -38,7 +42,7 @@ def cryptids_detail(request, cryptid_id):
     })
 
 
-class CryptidCreate(CreateView):
+class CryptidCreate(LoginRequiredMixin, CreateView):
     model = Cryptid
     fields = ['name', 'other', 'description', 'location']
 
@@ -49,16 +53,17 @@ class CryptidCreate(CreateView):
         return super().form_valid(form)
 
 
-class CryptidUpdate(UpdateView):
+class CryptidUpdate(LoginRequiredMixin, UpdateView):
     model = Cryptid
     fields = ['other', 'description', 'location']
 
 
-class CryptidDelete(DeleteView):
+class CryptidDelete(LoginRequiredMixin, DeleteView):
     model = Cryptid
     success_url = '/cryptids/'
 
 
+@login_required
 def add_sighting(request, cryptid_id):
     form = SightingForm(request.POST)
     if form.is_valid():
@@ -68,35 +73,37 @@ def add_sighting(request, cryptid_id):
     return redirect('cryptids_detail', cryptid_id=cryptid_id)
 
 
-class EvidenceCreate(CreateView):
+class EvidenceCreate(LoginRequiredMixin, CreateView):
     model = Evidence
     fields = '__all__'
 
 
-class EvidenceList(ListView):
+class EvidenceList(LoginRequiredMixin, ListView):
     model = Evidence
 
 
-class EvidenceDetail(DetailView):
+class EvidenceDetail(LoginRequiredMixin, DetailView):
     model = Evidence
 
 
-class EvidenceUpdate(UpdateView):
+class EvidenceUpdate(LoginRequiredMixin, UpdateView):
     model = Evidence
     fields = ['evidence', 'color']
 
 
-class EvidenceDelete(DeleteView):
+class EvidenceDelete(LoginRequiredMixin, DeleteView):
     model = Evidence
     success_url = '/evidence/'
 
 
+@login_required
 def assoc_evidence(request, cryptid_id, evidence_id):
     print(cryptid_id)
     Cryptid.objects.get(id=cryptid_id).evidence.add(evidence_id)
     return redirect('cryptids_detail', cryptid_id=cryptid_id)
 
 
+@login_required
 def add_photo(request, cryptid_id):
     # photo-file will be the "name" attribute on the <input type="file">
     photo_file = request.FILES.get('photo-file', None)
