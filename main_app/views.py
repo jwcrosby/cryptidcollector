@@ -20,16 +20,18 @@ def cryptids_index(request):
 
 def cryptids_detail(request, cryptid_id):
     cryptid = Cryptid.objects.get(id=cryptid_id)
+    evidence_cryptid_doesnt_have = Evidence.objects.exclude(id__in = cryptid.evidence.all().values_list('id'))
     sighting_form = SightingForm()
     return render(request, 'cryptids/detail.html', {
         'cryptid': cryptid,
-        'sighting_form': sighting_form
+        'sighting_form': sighting_form,
+        'evidence': evidence_cryptid_doesnt_have
     })
 
 
 class CryptidCreate(CreateView):
     model = Cryptid
-    fields = '__all__'
+    fields = ['name', 'other', 'description', 'location']
 
 
 class CryptidUpdate(UpdateView):

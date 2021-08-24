@@ -12,11 +12,22 @@ TIMESOFDAY = (
   ('G', 'Midnight')
 )
 
+class Evidence(models.Model):
+  evidence = models.CharField(max_length=50)
+  color = models.CharField(max_length=20)
+
+  def __str__(self):
+    return self.evidence
+
+  def get_absolute_url(self):
+    return reverse('evidence_detail', kwargs={'pk': self.id})
+
 class Cryptid(models.Model):
   name = models.CharField(max_length=100)
   other = models.CharField(max_length=100)
   description = models.TextField(max_length=150)
   location = models.CharField(max_length=150)
+  evidence = models.ManyToManyField(Evidence)
 
   def __str__(self):
     return self.name
@@ -43,13 +54,3 @@ class Sighting(models.Model):
 
   class Meta:
     ordering = ['-date']
-
-class Evidence(models.Model):
-  evidence = models.CharField(max_length=50)
-  color = models.CharField(max_length=20)
-
-  def __str__(self):
-    return self.evidence
-
-  def get_absolute_url(self):
-    return reverse('evidence_detail', kwargs={'pk': self.id})
