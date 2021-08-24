@@ -20,14 +20,14 @@ main > section {
 }
 
 .header-logo-container {
-  display: none;
+  /* display: none; */
 }
 
 .logo-container {
   max-width: 450px;
 }
 
-.cryptid-container {
+.cat-container {
   width: 80%;
 }
 
