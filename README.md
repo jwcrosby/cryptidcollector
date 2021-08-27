@@ -1,6 +1,6 @@
 ![CRYPTID COLLECTOR](/main_app/static/images/logo1.png)
 
-# [Click here to launch site.](https://cryptid-collector.herokuapp.com/)
+# [Click here to launch site.](https://cryptid-collector.herokuapp.com)
 
 ## Languages Used
 
